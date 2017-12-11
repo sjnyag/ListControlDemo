@@ -1,61 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.sjn.demo.listcontrolldemo.MainActivity">
+<android.support.design.widget.CoordinatorLayout android:id="@+id/coordinatorLayout"
+                                                 xmlns:android="http://schemas.android.com/apk/res/android"
+                                                 xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                 xmlns:tools="http://schemas.android.com/tools"
+                                                 android:layout_width="match_parent"
+                                                 android:layout_height="match_parent"
+                                                 tools:context="com.sjn.demo.listcontrolldemo.DrawerActivity">
 
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/swipeRefreshLayout"
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-        <FrameLayout
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:titleEnabled="false">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                 xmlns:tools="http://schemas.android.com/tools"
+                                                 android:layout_width="match_parent"
+                                                 android:layout_height="match_parent"
+                                                 app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefreshLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recycler_view"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#242229"
-                android:clipToPadding="false"
-                android:paddingBottom="130dp" />
+                android:layout_height="match_parent">
 
-        </FrameLayout>
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#242229"
+                    android:clipToPadding="false"
+                    android:paddingBottom="130dp"/>
 
-    </android.support.v4.widget.SwipeRefreshLayout>
+            </FrameLayout>
 
-    <RelativeLayout
-        android:id="@+id/empty_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:alpha="0.0"
-        android:gravity="center_vertical"
-        tools:alpha="1.0">
+        </android.support.v4.widget.SwipeRefreshLayout>
 
-        <TextView
-            android:id="@+id/empty_text"
+        <RelativeLayout
+            android:id="@+id/empty_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:alpha="0.4"
-            android:freezesText="true"
-            android:gravity="center_horizontal"
-            android:text="No items!!"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="?android:textColorSecondary" />
+            android:layout_height="match_parent"
+            android:alpha="0.0"
+            android:gravity="center_vertical"
+            tools:alpha="1.0">
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/empty_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:alpha="0.4"
+                android:freezesText="true"
+                android:gravity="center_horizontal"
+                android:text="No items!!"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="?android:textColorSecondary"/>
 
-    <eu.davidea.fastscroller.FastScroller
-        android:id="@+id/fast_scroller"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_alignBottom="@+id/swipeRefreshLayout"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/swipeRefreshLayout"
-        android:layout_centerHorizontal="true"
-        android:visibility="gone"
-        tools:visibility="visible" />
+        </RelativeLayout>
 
-</android.support.constraint.ConstraintLayout>
+        <eu.davidea.fastscroller.FastScroller
+            android:id="@+id/fast_scroller"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignBottom="@+id/swipeRefreshLayout"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/swipeRefreshLayout"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone"
+            tools:visibility="visible"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.design.widget.CoordinatorLayout>

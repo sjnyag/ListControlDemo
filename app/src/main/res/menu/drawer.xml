@@ -16,4 +16,8 @@
         android:id="@+id/filter"
         android:icon="@drawable/ic_filter_list"
         android:title="Filter"/>
+    <item
+        android:id="@+id/sticky_header"
+        android:icon="@drawable/ic_view_headline"
+        android:title="Sticky Header"/>
 </menu>

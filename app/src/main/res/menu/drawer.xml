@@ -8,5 +8,8 @@
         android:id="@+id/action_mode"
         android:icon="@drawable/ic_select_all"
         android:title="Action Mode"/>
-
+    <item
+        android:id="@+id/fast_scroll"
+        android:icon="@drawable/ic_chat_bubble"
+        android:title="Fast Scroll"/>
 </menu>

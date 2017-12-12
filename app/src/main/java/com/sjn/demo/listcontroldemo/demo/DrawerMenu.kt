@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager
 import com.sjn.demo.listcontroldemo.R
 import com.sjn.demo.listcontroldemo.activity.DrawerActivity
 import com.sjn.demo.listcontroldemo.demo.actionmode.ActionModeFragment
+import com.sjn.demo.listcontroldemo.demo.fastscroll.FastScrollFragment
 import com.sjn.demo.listcontroldemo.demo.base.BaseFragment
 
 enum class DrawerMenu(val menuId: Int) {
@@ -18,6 +19,11 @@ enum class DrawerMenu(val menuId: Int) {
     ACTION_MODE(R.id.action_mode) {
         override fun open(fragmentActivity: FragmentActivity) {
             fragmentActivity.navigateToBrowser(ActionModeFragment(), false)
+        }
+    },
+    FAST_SCROLL(R.id.fast_scroll) {
+        override fun open(fragmentActivity: FragmentActivity) {
+            fragmentActivity.navigateToBrowser(FastScrollFragment(), false)
         }
     };
 

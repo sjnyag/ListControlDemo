@@ -32,10 +32,14 @@ abstract class DrawerActivity : AppCompatActivity(), FragmentManager.OnBackStack
                 }
 
                 override fun changeFragmentByDrawer(drawerItem: IDrawerItem<*, *>) {
-                    DrawerMenu.of(drawerItem.identifier)?.open(this@DrawerActivity)
+                    this@DrawerActivity.changeFragmentByDrawer(drawerItem)
                 }
             })
         }
+    }
+
+    open fun changeFragmentByDrawer(drawerItem: IDrawerItem<*, *>) {
+        DrawerMenu.of(drawerItem.identifier)?.open(this@DrawerActivity)
     }
 
     open fun setToolbarTitle(title: CharSequence?) = setTitle(title ?: mDrawer?.selectingDrawerName ?: "")

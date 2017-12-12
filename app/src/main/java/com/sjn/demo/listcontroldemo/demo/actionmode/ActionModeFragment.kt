@@ -21,6 +21,9 @@ class ActionModeFragment : BaseFragment(), ActionMode.Callback,
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val rootView = super.onCreateView(inflater, container, savedInstanceState) ?: return null
         initializeActionModeHelper(SelectableAdapter.Mode.SINGLE)
+        mAdapter?.let {
+            it.mode = SelectableAdapter.Mode.SINGLE
+        }
         return rootView
     }
 

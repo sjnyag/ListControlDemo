@@ -1,12 +1,12 @@
-package com.sjn.demo.listcontrolldemo
+package com.sjn.demo.listcontroldemo.demo.base
 
 import android.view.View
-
+import com.sjn.demo.listcontroldemo.R
 import eu.davidea.flexibleadapter.FlexibleAdapter
 import eu.davidea.flexibleadapter.items.AbstractFlexibleItem
 import eu.davidea.viewholders.FlexibleViewHolder
 
-class DemoItem : AbstractFlexibleItem<DemoItem.DemoViewHolder>() {
+open class BaseItem : AbstractFlexibleItem<FlexibleViewHolder>() {
 
     override fun equals(other: Any?): Boolean {
         return false
@@ -20,11 +20,11 @@ class DemoItem : AbstractFlexibleItem<DemoItem.DemoViewHolder>() {
         return R.layout.demo_item
     }
 
-    override fun createViewHolder(view: View, adapter: FlexibleAdapter<*>): DemoItem.DemoViewHolder {
+    override fun createViewHolder(view: View, adapter: FlexibleAdapter<*>): FlexibleViewHolder {
         return DemoViewHolder(view, adapter)
     }
 
-    override fun bindViewHolder(adapter: FlexibleAdapter<*>, holder: DemoItem.DemoViewHolder, position: Int, payloads: List<*>) {
+    override fun bindViewHolder(adapter: FlexibleAdapter<*>, holder: FlexibleViewHolder, position: Int, payloads: List<*>) {
 
     }
 

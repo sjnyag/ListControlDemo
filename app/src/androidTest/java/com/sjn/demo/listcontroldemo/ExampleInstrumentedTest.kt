@@ -1,4 +1,4 @@
-package com.sjn.demo.listcontrolldemo
+package com.sjn.demo.listcontroldemo
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

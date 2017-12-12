@@ -1,7 +1,5 @@
-package com.sjn.demo.listcontrolldemo
+package com.sjn.demo.listcontroldemo.activity
 
-import android.app.Activity
-import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.support.v4.app.FragmentManager
@@ -9,9 +7,9 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import android.view.View
-import com.mikepenz.materialdrawer.model.BaseDrawerItem
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
-import kotlin.reflect.KClass
+import com.sjn.demo.listcontroldemo.R
+import com.sjn.demo.listcontroldemo.demo.DrawerMenu
 
 abstract class DrawerActivity : AppCompatActivity(), FragmentManager.OnBackStackChangedListener {
 
@@ -19,14 +17,6 @@ abstract class DrawerActivity : AppCompatActivity(), FragmentManager.OnBackStack
     private var mDrawer: DrawerHelper.Drawer? = null
 
     abstract fun onOptionsItemSelected(itemId: Int): Boolean
-
-    private fun <T : Activity> Activity.startActivity(classRef: KClass<T>, bundle: Bundle? = null) {
-        val intent = Intent(this, classRef.java).setAction(Intent.ACTION_VIEW)
-        bundle?.let {
-            intent.putExtra("args", bundle)
-        }
-        startActivity(intent)
-    }
 
     protected fun initializeToolbar() {
         mToolbar = findViewById<View>(R.id.toolbar) as Toolbar
@@ -37,12 +27,12 @@ abstract class DrawerActivity : AppCompatActivity(), FragmentManager.OnBackStack
             it.inflateMenu(R.menu.drawer)
             setSupportActionBar(it)
             mDrawer = DrawerHelper.Drawer(this, it, object : DrawerHelper.Drawer.Listener {
+                override fun setToolbarTitle(title: CharSequence?) {
+                    this@DrawerActivity.setToolbarTitle(title)
+                }
+
                 override fun changeFragmentByDrawer(drawerItem: IDrawerItem<*, *>) {
-//                    val drawerMenu = DrawerMenu.of(menu) ?: return
-//                    navigateToBrowser(drawerMenu.fragment, false, menu)
-                    if (drawerItem is BaseDrawerItem) {
-                        setToolbarTitle(drawerItem.name.text)
-                    }
+                    DrawerMenu.of(drawerItem.identifier)?.open(this@DrawerActivity)
                 }
             })
         }
@@ -113,6 +103,10 @@ abstract class DrawerActivity : AppCompatActivity(), FragmentManager.OnBackStack
     override fun setTitle(titleId: Int) {
         super.setTitle(titleId)
         mToolbar?.setTitle(titleId)
+    }
+
+    companion object {
+        const val FRAGMENT_TAG = "fragment_container"
     }
 
 }

@@ -1,4 +1,4 @@
-package com.sjn.demo.listcontrolldemo
+package com.sjn.demo.listcontroldemo.activity
 
 import android.content.res.Configuration
 import android.graphics.Bitmap
@@ -15,6 +15,8 @@ import com.mikepenz.materialdrawer.DrawerBuilder
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
 import com.mikepenz.materialdrawer.model.interfaces.Nameable
+import com.sjn.demo.listcontroldemo.R
+import com.sjn.demo.listcontroldemo.demo.DrawerMenu
 import com.squareup.picasso.Picasso
 import com.squareup.picasso.Target
 
@@ -23,6 +25,7 @@ object DrawerHelper {
     class Drawer(private val activity: AppCompatActivity, toolbar: Toolbar, private val listener: Listener) {
         interface Listener {
             fun changeFragmentByDrawer(drawerItem: IDrawerItem<*, *>)
+            fun setToolbarTitle(title: CharSequence?)
         }
 
         private var mDrawer: com.mikepenz.materialdrawer.Drawer? = null
@@ -85,11 +88,13 @@ object DrawerHelper {
                             override fun onDrawerOpened(view: View) {}
 
                             override fun onDrawerClosed(view: View) {
-                                mNextDrawerMenu?.let{
+                                mNextDrawerMenu?.let {
                                     if (mSelectingDrawerMenu == it.identifier) {
                                         return
                                     }
                                     mSelectingDrawerMenu = it.identifier
+                                    listener.setToolbarTitle(selectingDrawerName)
+                                    mDrawer?.setSelection(mSelectingDrawerMenu)
                                     listener.changeFragmentByDrawer(it)
                                 }
                             }
@@ -98,8 +103,11 @@ object DrawerHelper {
                         })
                         .build()
             }
-
-            mDrawerToggle = mDrawer!!.actionBarDrawerToggle
+            mDrawer?.let {
+                mDrawerToggle = it.actionBarDrawerToggle
+                it.setSelection(mSelectingDrawerMenu)
+                listener.setToolbarTitle(selectingDrawerName)
+            }
         }
 
         private fun createAccountHeader() {

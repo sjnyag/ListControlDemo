@@ -1,4 +1,4 @@
-package com.sjn.demo.listcontrolldemo
+package com.sjn.demo.listcontroldemo
 
 import org.junit.Test
 

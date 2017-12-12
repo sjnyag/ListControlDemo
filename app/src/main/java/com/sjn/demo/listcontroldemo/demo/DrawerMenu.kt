@@ -8,7 +8,7 @@ import com.sjn.demo.listcontroldemo.R
 import com.sjn.demo.listcontroldemo.activity.DrawerActivity
 import com.sjn.demo.listcontroldemo.demo.actionmode.ActionModeFragment
 import com.sjn.demo.listcontroldemo.demo.fastscroll.FastScrollFragment
-import com.sjn.demo.listcontroldemo.demo.base.BaseFragment
+import com.sjn.demo.listcontroldemo.demo.filter.FilterFragment
 
 enum class DrawerMenu(val menuId: Int) {
     HOME(R.id.navigation_home) {
@@ -24,6 +24,11 @@ enum class DrawerMenu(val menuId: Int) {
     FAST_SCROLL(R.id.fast_scroll) {
         override fun open(fragmentActivity: FragmentActivity) {
             fragmentActivity.navigateToBrowser(FastScrollFragment(), false)
+        }
+    },
+    FILTER(R.id.filter) {
+        override fun open(fragmentActivity: FragmentActivity) {
+            fragmentActivity.navigateToBrowser(FilterFragment(), false)
         }
     };
 

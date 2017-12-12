@@ -6,13 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.sjn.demo.listcontroldemo.R
-import com.sjn.demo.listcontroldemo.demo.base.BaseFragment
-import com.sjn.demo.listcontroldemo.demo.base.BaseItem
+import com.sjn.demo.listcontroldemo.demo.BaseFragment
+import com.sjn.demo.listcontroldemo.demo.BaseItem
 import eu.davidea.fastscroller.FastScroller
 import eu.davidea.flexibleadapter.SelectableAdapter
 import eu.davidea.flexibleadapter.common.SmoothScrollLinearLayoutManager
-import eu.davidea.flexibleadapter.items.AbstractFlexibleItem
-import java.util.*
 
 class FastScrollFragment : BaseFragment(), FastScroller.OnScrollStateChangeListener {
     override fun onFastScrollerStateChange(scrolling: Boolean) {
@@ -25,7 +23,7 @@ class FastScrollFragment : BaseFragment(), FastScroller.OnScrollStateChangeListe
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val rootView = inflater.inflate(R.layout.fragment_fast_scroll, container, false)
-        mAdapter = FastScrollAdapter(createItemList(), this)
+        mAdapter = FastScrollAdapter(dateList(300).map { BaseItem(it) }, this)
         mRecyclerView = rootView?.findViewById(R.id.recycler_view)
         mRecyclerView?.let {
             it.layoutManager = SmoothScrollLinearLayoutManager(context)
@@ -35,16 +33,9 @@ class FastScrollFragment : BaseFragment(), FastScroller.OnScrollStateChangeListe
             it.mode = SelectableAdapter.Mode.SINGLE
             it.fastScroller = setUpFastScroll(rootView)
         }
+        setUpActivity()
         showFab()
         return rootView
-    }
-
-    override fun createItemList(): List<AbstractFlexibleItem<*>> {
-        val itemList = ArrayList<AbstractFlexibleItem<*>>()
-        for (index in 1..100) {
-            itemList.add(BaseItem())
-        }
-        return itemList
     }
 
     private fun setUpFastScroll(rootView: View): FastScroller {

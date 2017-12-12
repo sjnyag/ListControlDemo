@@ -1,4 +1,4 @@
-package com.sjn.demo.listcontroldemo.demo.base
+package com.sjn.demo.listcontroldemo.demo
 
 import eu.davidea.flexibleadapter.FlexibleAdapter
 import eu.davidea.flexibleadapter.items.AbstractFlexibleItem

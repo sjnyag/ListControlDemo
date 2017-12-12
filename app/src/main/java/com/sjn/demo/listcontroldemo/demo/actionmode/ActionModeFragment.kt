@@ -5,12 +5,12 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.view.ActionMode
 import android.view.*
 import com.sjn.demo.listcontroldemo.R
-import com.sjn.demo.listcontroldemo.demo.base.BaseFragment
+import com.sjn.demo.listcontroldemo.demo.BaseAdapter
+import com.sjn.demo.listcontroldemo.demo.BaseFragment
 import eu.davidea.flexibleadapter.FlexibleAdapter
 import eu.davidea.flexibleadapter.SelectableAdapter
+import eu.davidea.flexibleadapter.common.SmoothScrollLinearLayoutManager
 import eu.davidea.flexibleadapter.helpers.ActionModeHelper
-import eu.davidea.flexibleadapter.items.AbstractFlexibleItem
-import java.util.*
 
 class ActionModeFragment : BaseFragment(), ActionMode.Callback,
         FlexibleAdapter.OnItemClickListener,
@@ -19,21 +19,20 @@ class ActionModeFragment : BaseFragment(), ActionMode.Callback,
     private var mActionModeHelper: ActionModeHelper? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val rootView = super.onCreateView(inflater, container, savedInstanceState) ?: return null
+        val rootView = inflater.inflate(R.layout.fragment_base, container, false)
+        mAdapter = BaseAdapter(dateList(30).map { ActionModeItem(it) }, this)
+        mRecyclerView = rootView?.findViewById(R.id.recycler_view)
+        mRecyclerView?.let {
+            it.layoutManager = SmoothScrollLinearLayoutManager(context)
+            it.adapter = mAdapter
+        }
         initializeActionModeHelper(SelectableAdapter.Mode.SINGLE)
         mAdapter?.let {
             it.mode = SelectableAdapter.Mode.SINGLE
         }
+        setUpActivity()
+        showFab()
         return rootView
-    }
-
-    override fun createItemList(): List<AbstractFlexibleItem<*>> {
-        val itemList = ArrayList<AbstractFlexibleItem<*>>()
-        for (index in 1..10) {
-            val item = ActionModeItem()
-            itemList.add(item)
-        }
-        return itemList
     }
 
     override fun onDestroyView() {

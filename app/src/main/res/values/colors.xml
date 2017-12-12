@@ -5,4 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorActionModePrimary">#757575</color>
     <color name="colorActionModePrimaryDark">#494949</color>
+    <color name="itemBackground">#FFFFFF</color>
+    <color name="itemSelected">#DDDDDD</color>
+    <color name="itemRipple">#494949</color>
 </resources>

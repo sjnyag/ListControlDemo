@@ -17,9 +17,11 @@
                 android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#242229"
+                android:background="@color/itemBackground"
+                android:clickable="true"
                 android:clipToPadding="false"
-                android:paddingBottom="130dp"/>
+                android:focusable="true"
+                android:paddingBottom="100dp"/>
 
         </FrameLayout>
 

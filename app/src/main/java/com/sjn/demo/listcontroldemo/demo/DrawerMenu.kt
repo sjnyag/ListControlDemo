@@ -12,6 +12,7 @@ import com.sjn.demo.listcontroldemo.demo.expand.ExpandFragment
 import com.sjn.demo.listcontroldemo.demo.fastscroll.FastScrollFragment
 import com.sjn.demo.listcontroldemo.demo.filter.FilterFragment
 import com.sjn.demo.listcontroldemo.demo.stickyheader.StickyHeaderFragment
+import com.sjn.demo.listcontroldemo.demo.swipetorefresh.SwipeToRefreshFragment
 
 enum class DrawerMenu(val menuId: Int) {
     HOME(R.id.navigation_home) {
@@ -47,6 +48,11 @@ enum class DrawerMenu(val menuId: Int) {
     ENDLESS_SCROLL(R.id.endless_scroll) {
         override fun open(fragmentActivity: FragmentActivity) {
             fragmentActivity.navigateToBrowser(EndlessScrollFragment(), false)
+        }
+    },
+    SWIPE_TO_REFRESH(R.id.swipe_to_refresh) {
+        override fun open(fragmentActivity: FragmentActivity) {
+            fragmentActivity.navigateToBrowser(SwipeToRefreshFragment(), false)
         }
     };
 

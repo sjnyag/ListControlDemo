@@ -10,15 +10,21 @@
         android:layout_height="match_parent"
         android:enabled="false">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler_view"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/md_white_1000"
-            android:clipToPadding="false"
-            android:paddingBottom="120dp"
-            android:scrollbars="vertical"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/md_white_1000"
+                android:clipToPadding="false"
+                android:paddingBottom="120dp"
+                android:scrollbars="vertical"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+        </FrameLayout>
 
     </android.support.v4.widget.SwipeRefreshLayout>
 

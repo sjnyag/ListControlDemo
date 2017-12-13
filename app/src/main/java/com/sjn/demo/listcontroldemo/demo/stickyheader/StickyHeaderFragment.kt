@@ -14,7 +14,7 @@ import java.util.*
 open class StickyHeaderFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val rootView = inflater.inflate(R.layout.fragment_base, container, false)
+        val rootView = inflater.inflate(R.layout.fragment_sticky_header, container, false)
         mAdapter = BaseAdapter(createItemList(), this)
         mRecyclerView = rootView?.findViewById(R.id.recycler_view)
         mRecyclerView?.let {

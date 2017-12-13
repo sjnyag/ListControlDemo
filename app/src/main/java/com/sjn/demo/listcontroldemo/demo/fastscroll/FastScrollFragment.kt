@@ -30,7 +30,6 @@ class FastScrollFragment : BaseFragment(), FastScroller.OnScrollStateChangeListe
             it.adapter = mAdapter
         }
         mAdapter?.let {
-            it.mode = SelectableAdapter.Mode.SINGLE
             it.fastScroller = setUpFastScroll(rootView)
         }
         setUpActivity()

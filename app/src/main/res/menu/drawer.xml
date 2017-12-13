@@ -24,4 +24,8 @@
         android:id="@+id/expand"
         android:icon="@drawable/ic_expand_more"
         android:title="Expand"/>
+    <item
+        android:id="@+id/endless_scroll"
+        android:icon="@drawable/ic_replay"
+        android:title="Endless Scroll"/>
 </menu>

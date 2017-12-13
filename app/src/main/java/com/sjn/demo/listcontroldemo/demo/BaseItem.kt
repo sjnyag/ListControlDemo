@@ -8,7 +8,7 @@ import eu.davidea.flexibleadapter.items.AbstractFlexibleItem
 import eu.davidea.viewholders.FlexibleViewHolder
 import org.joda.time.LocalDate
 
-open class BaseItem(date: LocalDate) : AbstractFlexibleItem<FlexibleViewHolder>() {
+open class BaseItem(val date: LocalDate) : AbstractFlexibleItem<FlexibleViewHolder>() {
     val title = date.toString("yyyy/MM/dd")!!
 
     override fun equals(other: Any?): Boolean {

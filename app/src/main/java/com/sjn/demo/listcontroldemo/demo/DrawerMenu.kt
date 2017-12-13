@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager
 import com.sjn.demo.listcontroldemo.R
 import com.sjn.demo.listcontroldemo.activity.DrawerActivity
 import com.sjn.demo.listcontroldemo.demo.actionmode.ActionModeFragment
+import com.sjn.demo.listcontroldemo.demo.endlessscroll.EndlessScrollFragment
 import com.sjn.demo.listcontroldemo.demo.expand.ExpandFragment
 import com.sjn.demo.listcontroldemo.demo.fastscroll.FastScrollFragment
 import com.sjn.demo.listcontroldemo.demo.filter.FilterFragment
@@ -41,6 +42,11 @@ enum class DrawerMenu(val menuId: Int) {
     EXPAND(R.id.expand) {
         override fun open(fragmentActivity: FragmentActivity) {
             fragmentActivity.navigateToBrowser(ExpandFragment(), false)
+        }
+    },
+    ENDLESS_SCROLL(R.id.endless_scroll) {
+        override fun open(fragmentActivity: FragmentActivity) {
+            fragmentActivity.navigateToBrowser(EndlessScrollFragment(), false)
         }
     };
 

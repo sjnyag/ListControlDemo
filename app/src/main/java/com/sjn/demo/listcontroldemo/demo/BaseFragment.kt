@@ -30,10 +30,10 @@ open class BaseFragment : Fragment() {
         return rootView
     }
 
-    fun dateList(days: Int): List<LocalDate> {
+    fun dateList(days: Int, start: LocalDate = LocalDate.now()): List<LocalDate> {
         val dateList = ArrayList<LocalDate>()
-        var date = LocalDate.now()
-        while (date.isAfter(LocalDate.now().minusDays(days))) {
+        var date = start
+        while (date.isAfter(start.minusDays(days))) {
             dateList.add(date)
             date = date.minusDays(1)
         }

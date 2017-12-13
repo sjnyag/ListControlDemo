@@ -36,4 +36,8 @@
         android:id="@+id/reorder"
         android:icon="@drawable/ic_reorder"
         android:title="Reorder"/>
+    <item
+        android:id="@+id/leave_behinds"
+        android:icon="@drawable/ic_delete"
+        android:title="Leave Behinds"/>
 </menu>

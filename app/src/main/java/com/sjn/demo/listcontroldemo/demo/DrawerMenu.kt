@@ -11,6 +11,7 @@ import com.sjn.demo.listcontroldemo.demo.endlessscroll.EndlessScrollFragment
 import com.sjn.demo.listcontroldemo.demo.expand.ExpandFragment
 import com.sjn.demo.listcontroldemo.demo.fastscroll.FastScrollFragment
 import com.sjn.demo.listcontroldemo.demo.filter.FilterFragment
+import com.sjn.demo.listcontroldemo.demo.leavebehinds.LeaveBehindsFragment
 import com.sjn.demo.listcontroldemo.demo.reorder.ReorderFragment
 import com.sjn.demo.listcontroldemo.demo.stickyheader.StickyHeaderFragment
 import com.sjn.demo.listcontroldemo.demo.swipetorefresh.SwipeToRefreshFragment
@@ -59,6 +60,11 @@ enum class DrawerMenu(val menuId: Int) {
     REORDER(R.id.reorder) {
         override fun open(fragmentActivity: FragmentActivity) {
             fragmentActivity.navigateToBrowser(ReorderFragment(), false)
+        }
+    },
+    LEAVE_BEHINDS(R.id.leave_behinds) {
+        override fun open(fragmentActivity: FragmentActivity) {
+            fragmentActivity.navigateToBrowser(LeaveBehindsFragment(), false)
         }
     };
 

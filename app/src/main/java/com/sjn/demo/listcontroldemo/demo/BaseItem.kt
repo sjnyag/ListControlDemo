@@ -23,7 +23,7 @@ open class BaseItem(val date: LocalDate) : AbstractFlexibleItem<FlexibleViewHold
     }
 
     override fun getLayoutRes(): Int {
-        return R.layout.item_demo
+        return R.layout.item_base
     }
 
     override fun createViewHolder(view: View, adapter: FlexibleAdapter<*>): FlexibleViewHolder {

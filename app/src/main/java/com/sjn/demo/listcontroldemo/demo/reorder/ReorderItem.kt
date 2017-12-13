@@ -27,7 +27,6 @@ class ReorderItem(date: LocalDate) : BaseItem(date) {
         }
     }
 
-
     internal class ReorderViewHolder(view: View, adapter: FlexibleAdapter<*>) : BaseViewHolder(view, adapter) {
         private var mHandleView = view.findViewById<View>(R.id.handle) as ImageView
 

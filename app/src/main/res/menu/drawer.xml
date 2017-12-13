@@ -20,4 +20,8 @@
         android:id="@+id/sticky_header"
         android:icon="@drawable/ic_view_headline"
         android:title="Sticky Header"/>
+    <item
+        android:id="@+id/expand"
+        android:icon="@drawable/ic_expand_more"
+        android:title="Expand"/>
 </menu>

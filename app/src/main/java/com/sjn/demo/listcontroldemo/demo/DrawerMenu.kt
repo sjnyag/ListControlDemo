@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager
 import com.sjn.demo.listcontroldemo.R
 import com.sjn.demo.listcontroldemo.activity.DrawerActivity
 import com.sjn.demo.listcontroldemo.demo.actionmode.ActionModeFragment
+import com.sjn.demo.listcontroldemo.demo.expand.ExpandFragment
 import com.sjn.demo.listcontroldemo.demo.fastscroll.FastScrollFragment
 import com.sjn.demo.listcontroldemo.demo.filter.FilterFragment
 import com.sjn.demo.listcontroldemo.demo.stickyheader.StickyHeaderFragment
@@ -35,6 +36,11 @@ enum class DrawerMenu(val menuId: Int) {
     STICKY_HEADER(R.id.sticky_header) {
         override fun open(fragmentActivity: FragmentActivity) {
             fragmentActivity.navigateToBrowser(StickyHeaderFragment(), false)
+        }
+    },
+    EXPAND(R.id.expand) {
+        override fun open(fragmentActivity: FragmentActivity) {
+            fragmentActivity.navigateToBrowser(ExpandFragment(), false)
         }
     };
 

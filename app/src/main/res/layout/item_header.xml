@@ -3,15 +3,17 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/accent">
+                android:background="#CC5C6BC0"
+                android:paddingBottom="12dp"
+                android:paddingTop="12dp">
 
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:ellipsize="end"
         android:maxLines="1"
-        android:padding="8dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large.Inverse"
         tools:text="Title"/>
 

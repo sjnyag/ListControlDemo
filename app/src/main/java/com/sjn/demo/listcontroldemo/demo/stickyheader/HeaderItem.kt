@@ -10,7 +10,7 @@ import eu.davidea.viewholders.FlexibleViewHolder
 import org.joda.time.LocalDate
 
 class HeaderItem(val date: LocalDate) : AbstractFlexibleItem<FlexibleViewHolder>(), IHeader<FlexibleViewHolder> {
-    val title = date.toString("- yyyy/MM -")!!
+    val title = date.toString("yyyy/MM")!!
 
     override fun equals(other: Any?): Boolean {
         if (other is HeaderItem) {
